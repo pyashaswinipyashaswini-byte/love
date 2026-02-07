@@ -61,15 +61,14 @@ animation:fall 3s linear infinite;
 </head>
 
 <body>
+<button onclick="playMusic()">🎵 Play Song</button>
 
-<audio id="music" loop controls>
-   <source src="mysong.mp3" type="audio/mpeg">
+<audio id="music">
+  <source src="mysong.mp3" type="audio/mpeg">
 </audio>
-
 <script>
-function show(id){
-document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"))
-document.getElementById(id).classList.add("active")
+function playMusic(){
+   document.getElementById("music").play();
 }
 </script>
 
