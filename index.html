@@ -62,7 +62,9 @@ animation:fall 3s linear infinite;
 
 <body>
 
-<audio id="music" src="mysong.mp3" loop></audio>
+<audio id="music" loop controls>
+   <source src="mysong.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 function show(id){
