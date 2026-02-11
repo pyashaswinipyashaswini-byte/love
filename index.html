@@ -1,232 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For My Abbayi Garu❤️</title>
+<title>Naa Abbayi kosam ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
-margin:0;
-font-family:Segoe UI, cursive;
-background:linear-gradient(135deg,#ff4b7d,#ff9ac6);
-color:white;
-overflow:hidden;
-text-align:center;
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(45deg,#ff4e8a,#ff9ecf,#ffc3e6);
+    text-align:center;
+    color:white;
+    overflow-x:hidden;
 }
 
-.screen{
-display:none;
-height:100vh;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-padding:20px;
+h1{
+    margin-top:30px;
+    font-size:40px;
 }
-.active{display:flex;}
 
 button{
-padding:12px 25px;
-border:none;
-border-radius:25px;
-background:white;
-color:#ff4b7d;
-font-size:18px;
-margin-top:20px;
-cursor:pointer;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff2e7a;
+    font-size:16px;
+    cursor:pointer;
+    margin:10px;
+    font-weight:bold;
 }
 
-/* hearts */
-.heart{
-position:absolute;
-font-size:22px;
-animation:float 5s linear infinite;
-}
-@keyframes float{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-10vh);opacity:0}
+.gallery{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:40px;
 }
 
-/* confetti */
-.confetti{
-position:absolute;
-width:8px;
-height:8px;
-background:white;
-animation:fall 3s linear infinite;
+.gallery img{
+    width:250px;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.5s;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
 }
-@keyframes fall{
-0%{transform:translateY(-10vh)}
-100%{transform:translateY(100vh)}
+
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+.surprise{
+    display:none;
+    background:white;
+    color:#ff2e7a;
+    margin:30px auto;
+    padding:20px;
+    border-radius:20px;
+    width:80%;
+    animation:fade 1s ease-in-out;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.footer{
+    margin-top:50px;
+    padding:20px;
+    font-size:18px;
 }
 </style>
 </head>
 
 <body>
-<button onclick="playMusic()">🎵 Play Song</button>
+
+<h1>Happy Valentine's Day Abbayi Garu 💖</h1>
+
+<!-- MUSIC BUTTON -->
+<button onclick="playMusic()">🎵 Play Our Song</button>
 
 <audio id="music">
   <source src="mysong.mp3" type="audio/mpeg">
 </audio>
+
+<!-- IMAGES -->
+<div class="gallery">
+    <img src="pic1.jpg" onclick="showSurprise(1)">
+    <img src="pic2.jpg" onclick="showSurprise(2)">
+    <img src="pic3.jpg" onclick="showSurprise(3)">
+</div>
+
+<!-- SURPRISE 1 -->
+<div id="sur1" class="surprise">
+    <h2>💌 First Surprise</h2>
+    <p>Nuvvu natho unte edaina sadhiyagalanu ane nammakam abbayi eppudu nannu vadieli vellaku Love you choo much Abbayi garu</p>
+    <p>Thank you for coming into my life and making me soo special in your life❤️</p>
+    <p>Click below 👇</p>
+    <button onclick="alert('I Love You Forever 😘')">Open Secret</button>
+</div>
+
+<!-- SURPRISE 2 -->
+<div id="sur2" class="surprise">
+    <h2>🌍 Second Surprise</h2>
+    <p>Natho undara chala nin chala happy ga unta nak love,crush,BF,boy bestie,husband anni nuvve</p>
+    <p>Naa Abbayi tho nin happy ga undali chaala ante chaalaa💓</p>
+    <button onclick="alert('You are my future husband ❤️')">Special Message</button>
+</div>
+
+<!-- SURPRISE 3 -->
+<div id="sur3" class="surprise">
+    <h2>🎁 Final Surprise</h2>
+    <p>Iroju Valentiens Day soo I waana make you special...</p>
+    <p>Nuvve na past,present and future, Love you mogudu garu 💍</p>
+    <button onclick="startHearts()">Click For Magic ✨</button>
+</div>
+
+<div class="footer">
+Nee mida prematho nii ammayi iche chinna gift
+</div>
+
 <script>
 function playMusic(){
    document.getElementById("music").play();
 }
-</script>
 
-<!-- SCREENS 1–15 -->
-
-<div class="screen active" id="s1">
-<h1>Oye Abbayi Garu❤️</h1>
-<button onclick="show('s2')">Tap to Begin</button>
-</div>
-
-<div class="screen" id="s2">
-<h2>Naa Mogudu peru Type Cheyyandi kinda </h2>
-<input id="name">
-<button onclick="start()">Next</button>
-</div>
-
-<div class="screen" id="s3"><h1 id="typing"></h1></div>
-
-<div class="screen" id="s4">
-<h2>Put your headphones on 🎧</h2>
-<button onclick="playSong()">Play Music</button>
-</div>
-
-<div class="screen" id="s5"><h1>Ninnu Chala Ista pade ni Ammayi❤️</h1></div>
-
-<div class="screen" id="s6"><h1 id="quote"></h1></div>
-
-<div class="screen" id="s7"><h1 id="reason"></h1></div>
-
-<div class="screen" id="s8">
-<h2> Mii kosam message waiting 💌</h2>
-<button onclick="show('s9')">Open</button>
-</div>
-
-<div class="screen" id="s9">
-<h2>My dear Mogudu Garu Mirante Naku Chacheantha Istam❤️</h2>
-<button onclick="countdown()">Next</button>
-</div>
-
-<div class="screen" id="s10">
-<h1 id="timer">5</h1>
-<h3> Mikoka surprise ...</h3>
-</div>
-
-<div class="screen" id="s11">
-<h2>Naa heart nii pattukondiii❤️</h2>
-<button id="gameBtn" onclick="show('s12')">❤️</button>
-</div>
-
-<div class="screen" id="s12">
-<h1 id="compliment"></h1>
-<button onclick="show('s13')">Next</button>
-</div>
-
-<div class="screen" id="s13">
-<h2>
-Naa Life loki vachi Nannu Baristhunandhuku  Thank you Abbayi Garu 💕,<br>
-  Miku Enthooo istamayina mii ammayii,Ante Ninu mimmalni Vadili ponu ani Hami isthunannu <br>
-</h2>
-<button onclick="show('s14')">Continue</button>
-</div>
-
-<div class="screen" id="s14">
-<h1>Untara eppatiki Nathone? 💍</h1>
-<button onclick="final()">YES ❤️</button>
-</div>
-
-<div class="screen" id="s15">
-<h1>Happy Valentine’s Day Abbayi Garu❤️</h1>
-<h2>I Love you choo much andi💕</h2>
-</div>
-
-<script>
-
-let music=document.getElementById("music")
-
-function start(){
-let text="Mii kosam mi Ammayi nunchi..."
-let i=0
-show("s3")
-
-let t=setInterval(()=>{
-typing.innerHTML=text.slice(0,i++)
-if(i>text.length){
-clearInterval(t)
-setTimeout(()=>show('s4'),8000)
-}
-},40)
+function showSurprise(num){
+    document.getElementById("sur1").style.display="none";
+    document.getElementById("sur2").style.display="none";
+    document.getElementById("sur3").style.display="none";
+    document.getElementById("sur"+num).style.display="block";
 }
 
-function playSong(){
-music.play()
-show('s5')
-setTimeout(()=>show('s6'),8000)
+function startHearts(){
+    for(let i=0;i<30;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML="❤️";
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top="100vh";
+        heart.style.fontSize="25px";
+        heart.style.animation="float 4s linear";
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{heart.remove();},4000);
+    }
 }
 
-/* quotes */
-let quotes=[" Miru Naa Supportive System"," Miru Naa happy place ❤️"," Miru Naa Comfort Zone 🥹"]
-let qi=0
-setInterval(()=>{ if(document.getElementById("quote")) quote.innerHTML=quotes[qi++%quotes.length] },1500)
-setTimeout(()=>show('s7'),10000)
-
-/* reasons */
-let reasonsArr=[" Nannu baristhunandhuku "," Nannu Chinna pillala chuskuntunandhuku 💕"," Naannuu chasthe vadalanandhuku 🤗","   Prathidaniki  ❤️"]
-let ri=0
-setInterval(()=>{ if(document.getElementById("reason")) reason.innerHTML="I love You"+reasonsArr[ri++%reasonsArr.length] },1500)
-setTimeout(()=>show('s8'),20000)
-
-/* countdown */
-function countdown(){
-show("s10")
-let t=5
-let c=setInterval(()=>{
-timer.innerHTML=t--
-if(t<0){
-clearInterval(c)
-game()
-}
-},3000)
-}
-
-/* game */
-function game(){
-show("s11")
-setInterval(()=>{
-gameBtn.style.position="absolute"
-gameBtn.style.left=Math.random()*80+"vw"
-gameBtn.style.top=Math.random()*80+"vh"
-},900)
-}
-
-/* compliments */
-let comp=["A real fighter 😍","Braveheart❤️"," Protecter💍"]
-setInterval(()=>{ compliment.innerHTML=comp[Math.floor(Math.random()*comp.length)] },1500)
-
-/* final */
-function final(){
-show("s15")
-setInterval(hearts,500)
-setInterval(confetti,450)
-}
-
-function hearts(){
-let h=document.createElement("div")
-h.className="heart"
-h.innerHTML="❤️"
-h.style.left=Math.random()*100+"vw"
-document.body.appendChild(h)
-setTimeout(()=>h.remove(),8000)
-}
-
-function confetti(){
-let c=document.createElement("div")
-c.className="confetti"
-c.style.left=Math.random()*100+"vw"
-document.body.appendChild(c)
-setTimeout(()=>c.remove(),6000)
-}
+let style=document.createElement("style");
+style.innerHTML=`
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(-120vh);}
+}`;
+document.head.appendChild(style);
 </script>
 
 </body>
